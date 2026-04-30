@@ -72,20 +72,31 @@ function getButtonStyle(category: ActionLink['category']): CSSProperties {
   }
 
   if (category === 'donate') {
+    // Primary CTA — Palestine red
     return {
       ...base,
-      background: '#f1c155',
-      color: '#15110d',
-      border: '1px solid #f1c155',
+      background: '#CE1126',
+      color: '#ffffff',
+      border: '1px solid #CE1126',
       fontWeight: 600,
     }
   }
-
+  if (category === 'learn') {
+    // Secondary CTA — Palestine green border
+    return {
+      ...base,
+      background: 'transparent',
+      color: '#ffffff',
+      border: '1px solid #007A3D',
+      fontWeight: 500,
+    }
+  }
+  // Tertiary (share) — neutral white border
   return {
     ...base,
     background: 'transparent',
-    color: '#f5ebd8',
-    border: '1px solid rgba(241,193,85,0.4)',
+    color: '#ffffff',
+    border: '1px solid rgba(255,255,255,0.4)',
     fontWeight: 500,
   }
 }
@@ -110,7 +121,7 @@ export function ActionLayer({
   const isDesktop = useIsDesktop()
 
   const sectionStyle: CSSProperties = {
-    background: '#0a0a0a',
+    background: '#000000',
     padding: isDesktop ? '64px 32px' : '48px 24px',
   }
 
@@ -120,7 +131,7 @@ export function ActionLayer({
   }
 
   const titleStyle: CSSProperties = {
-    color: '#f5ebd8',
+    color: '#ffffff',
     fontSize: isDesktop ? '32px' : '26px',
     fontWeight: 600,
     lineHeight: 1.2,
@@ -128,7 +139,7 @@ export function ActionLayer({
   }
 
   const subtitleStyle: CSSProperties = {
-    color: '#cdb98c',
+    color: '#ffffff',
     opacity: 0.85,
     fontSize: isDesktop ? '17px' : '15px',
     lineHeight: 1.45,

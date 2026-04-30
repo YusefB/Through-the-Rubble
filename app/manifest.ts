@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'TtR Admin',
     start_url: '/admin',
     display: 'standalone',
-    background_color: '#0a0a0a',
-    theme_color: '#0a0a0a',
+    background_color: '#000000',
+    theme_color: '#000000',
     icons: [
       {
         src: '/favicon.ico',

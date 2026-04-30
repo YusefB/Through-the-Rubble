@@ -74,7 +74,7 @@ export default async function AdminDashboardPage() {
                   background: '#161616',
                   border: '1px solid #2a2a2a',
                   borderRadius: 8,
-                  color: '#f5ebd8',
+                  color: '#ffffff',
                   textDecoration: 'none',
                 }}
               >

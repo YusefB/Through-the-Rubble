@@ -30,7 +30,7 @@ export default async function HomePage() {
   const hotspots = live?.hotspots.length ? live.hotspots : mockHotspots
 
   return (
-    <main style={{ background: '#0a0a0a', color: '#f5ebd8', minHeight: '100vh' }}>
+    <main style={{ background: '#000000', color: '#ffffff', minHeight: '100vh' }}>
       <div
         style={{
           position: 'fixed',

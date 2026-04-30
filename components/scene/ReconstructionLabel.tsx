@@ -32,8 +32,8 @@ export function ReconstructionLabel({ label }: Props) {
           minWidth: '44px',
           minHeight: '44px',
           background: 'rgba(0,0,0,0.7)',
-          color: '#f1c155',
-          border: '1px solid rgba(241,193,85,0.4)',
+          color: '#CE1126',
+          border: '1px solid rgba(206,17,38,0.4)',
           borderRadius: '999px',
           fontSize: '12px',
           letterSpacing: '1.5px',
@@ -50,11 +50,11 @@ export function ReconstructionLabel({ label }: Props) {
           marginTop: '6px',
           padding: '10px',
           background: 'rgba(0,0,0,0.85)',
-          color: '#f5ebd8',
+          color: '#ffffff',
           fontSize: '12px',
           lineHeight: 1.5,
           borderRadius: '6px',
-          border: '1px solid rgba(241,193,85,0.2)',
+          border: '1px solid rgba(206,17,38,0.2)',
         }}
       >
         {label}

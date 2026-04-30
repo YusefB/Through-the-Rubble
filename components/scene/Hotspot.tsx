@@ -51,8 +51,8 @@ export function Hotspot({ hotspot, onOpen }: Props) {
           maxWidth: '32px',
           maxHeight: '32px',
           borderRadius: '50%',
-          background: '#f1c155',
-          boxShadow: '0 0 0 4px rgba(241,193,85,0.25)',
+          background: '#CE1126',
+          boxShadow: '0 0 0 4px rgba(206,17,38,0.25)',
         }}
       />
       <span

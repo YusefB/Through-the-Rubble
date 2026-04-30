@@ -66,7 +66,7 @@ export default async function AdminScenesPage() {
                   <Link
                     href={`/admin/scenes/${s.id}`}
                     style={{
-                      color: '#f5ebd8',
+                      color: '#ffffff',
                       textDecoration: 'underline',
                     }}
                   >
