@@ -9,7 +9,7 @@ import type {
 export const mockScene: Scene = {
   id: 'scene-main-street',
   slug: 'main-street',
-  title: 'Ezz Eldine al-Qassam Street, Gaza City',
+  title: 'Gaza City: two streets, 2023 → 2025',
   defaultBeforeAfter: 'after',
 }
 
@@ -20,10 +20,10 @@ export const mockImages: SceneImage[] = [
     width: 1440,
     height: 1800,
     blurDataUrl:
-      'data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoIAAoABABoJZQC7ADzfuKjQAD45UdKT53aYzQBkFStSoy1pQVtqlXbjFkjFzbLAXOFr6XwAAA=',
+      'data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAoABABoJZwAAp11gLuAAP7Spvg1IN5rh5UMCRX9srpeffrS5QW8Xt4BbgAA',
     isReconstruction: false,
     altText:
-      'Shifa Ezz Eldine AlQassam Street in Gaza, photographed January 5, 2023, before the 2023-2025 war.',
+      'Ezz Eldine al-Qassam Street in Gaza City, photographed January 5, 2023, before the 2023-2025 war.',
     creditLine: 'Photo: Jaber Jehad Badwan / Wikimedia Commons (CC BY-SA 4.0)',
   },
   {
@@ -32,11 +32,12 @@ export const mockImages: SceneImage[] = [
     width: 1440,
     height: 1800,
     blurDataUrl:
-      'data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoIAAoABABoJZACdAEO7o3M1oAA/eNg/liXIEYR68hGpg2qd5MYAgq//XeHLzCymaej04Ij1FWfAAAA',
+      'data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAoABABoJYwCw7EO4adAAAD+6V/1s5/wy0R3t1CW6rkq538L+b58koCeiUk2owAAAA==',
     isReconstruction: false,
     altText:
-      'Street-level destruction in Gaza during the 2023-2025 war, photographed February 22, 2025.',
-    creditLine: 'Photo: Jaber Jehad Badwan / Wikimedia Commons (CC BY-SA 4.0)',
+      'Sheikh Radwan district of Gaza City, photographed February 22, 2025, after Israeli bombardment.',
+    creditLine:
+      'Photo: Jaber Jehad Badwan / Wikimedia Commons (CC BY-SA 4.0). GPS 31°32′02″N, 34°27′37″E.',
   },
 ]
 
