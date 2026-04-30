@@ -13,48 +13,57 @@ const out = 'public/scenes'
 mkdirSync(out, { recursive: true })
 
 const TARGET_W = 1440
-const TARGET_H = 3840 // 9:24 ratio
+const TARGET_H = 1800 // 4:5 portrait — keeps more image content visible than 9:24
 
 async function processBefore() {
-  // AlQassam Street (2268 × 4032, 9:16 portrait) — needs a tiny vertical extension
-  // to reach 9:24. Solution: scale to 1440 wide (gives 1440 × 2560), then extend
-  // the canvas to 1440 × 3840 with a darker pad on top.
-  const buf = await sharp('tmp/source-photos/before-alqassam.jpg')
+  // AlQassam Street (2268 × 4032, 9:16 portrait). Target 4:5 (1440 × 1800).
+  // Scale to 1440 wide → 1440 × 2560, then crop equally from top + bottom to
+  // 1800 tall (~70% of vertical content preserved, centered).
+  const scaled = await sharp('tmp/source-photos/before-alqassam.jpg')
     .resize({ width: TARGET_W, fit: 'cover' })
     .toBuffer()
-  const { height: h } = await sharp(buf).metadata()
-  const padTop = TARGET_H - h
-  await sharp({
-    create: {
-      width: TARGET_W,
-      height: TARGET_H,
-      channels: 3,
-      background: { r: 30, g: 38, b: 48 }, // tonal extension at top
-    },
-  })
-    .composite([{ input: buf, top: padTop, left: 0 }])
-    .webp({ quality: 80 })
+  const { height: scaledH } = await sharp(scaled).metadata()
+  const cropTop = Math.round((scaledH - TARGET_H) / 2)
+  await sharp(scaled)
+    .extract({ left: 0, top: cropTop, width: TARGET_W, height: TARGET_H })
+    .webp({ quality: 82 })
     .toFile(`${out}/main-street-before.webp`)
 
-  // Generate a tiny LQIP for blur placeholder (~30 bytes encoded)
-  const lqipBuf = await sharp(buf).resize(8, 22).webp({ quality: 30 }).toBuffer()
-  const lqipDataUrl = `data:image/webp;base64,${lqipBuf.toString('base64')}`
-  return { width: TARGET_W, height: TARGET_H, blurDataUrl: lqipDataUrl }
+  const lqipBuf = await sharp(`${out}/main-street-before.webp`)
+    .resize(8, 10)
+    .webp({ quality: 30 })
+    .toBuffer()
+  return {
+    width: TARGET_W,
+    height: TARGET_H,
+    blurDataUrl: `data:image/webp;base64,${lqipBuf.toString('base64')}`,
+  }
 }
 
 async function processAfter() {
-  // IMG_5923 (4032 × 2268 landscape) — crop a 9:24 vertical slice from the
-  // visually-dense center, then scale to 1440 × 3840.
-  const cropW = Math.round(2268 * (9 / 24)) // ~851 wide for 2268 tall
-  const cropX = Math.round((4032 - cropW) / 2) // center horizontally
+  // IMG_5923 (4032 × 2268 landscape). Target 4:5 (1440 × 1800). To keep more
+  // horizontal context: scale-fit to 1800 tall (gives ~3199 × 1800), then
+  // center-crop 1440 wide (~45% horizontal preserved vs ~21% on the previous
+  // tight 9:24 crop).
   const buf = await sharp('tmp/source-photos/after-rubble.jpg')
-    .extract({ left: cropX, top: 0, width: cropW, height: 2268 })
-    .resize({ width: TARGET_W, height: TARGET_H, fit: 'cover' })
+    .resize({ height: TARGET_H, fit: 'cover' })
     .toBuffer()
-  await sharp(buf).webp({ quality: 80 }).toFile(`${out}/main-street-after.webp`)
-  const lqipBuf = await sharp(buf).resize(8, 22).webp({ quality: 30 }).toBuffer()
-  const lqipDataUrl = `data:image/webp;base64,${lqipBuf.toString('base64')}`
-  return { width: TARGET_W, height: TARGET_H, blurDataUrl: lqipDataUrl }
+  const { width: scaledW } = await sharp(buf).metadata()
+  const cropLeft = Math.round((scaledW - TARGET_W) / 2)
+  await sharp(buf)
+    .extract({ left: cropLeft, top: 0, width: TARGET_W, height: TARGET_H })
+    .webp({ quality: 82 })
+    .toFile(`${out}/main-street-after.webp`)
+
+  const lqipBuf = await sharp(`${out}/main-street-after.webp`)
+    .resize(8, 10)
+    .webp({ quality: 30 })
+    .toBuffer()
+  return {
+    width: TARGET_W,
+    height: TARGET_H,
+    blurDataUrl: `data:image/webp;base64,${lqipBuf.toString('base64')}`,
+  }
 }
 
 const before = await processBefore()

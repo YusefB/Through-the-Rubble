@@ -100,7 +100,7 @@ export default function LoginPage() {
               borderRadius: 6,
               border: '1px solid #4a4a4a',
               background: '#0a0a0a',
-              color: '#f5ebd8',
+              color: '#ffffff',
               fontSize: 15,
             }}
           />
@@ -128,7 +128,7 @@ export default function LoginPage() {
                 borderRadius: 6,
                 border: '1px solid #4a4a4a',
                 background: '#0a0a0a',
-                color: '#f5ebd8',
+                color: '#ffffff',
                 fontSize: 15,
               }}
             />
@@ -142,7 +142,7 @@ export default function LoginPage() {
             padding: '10px 16px',
             borderRadius: 6,
             border: 'none',
-            background: '#f5ebd8',
+            background: '#ffffff',
             color: '#0a0a0a',
             fontSize: 15,
             fontWeight: 600,

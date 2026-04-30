@@ -143,9 +143,9 @@ export function HotspotDrawer({ hotspots }: Props) {
         width: 'calc(100% - 32px)',
         maxHeight: '80vh',
         overflowY: 'auto',
-        background: '#15110d',
-        color: '#f5ebd8',
-        border: '1px solid rgba(241,193,85,0.3)',
+        background: '#000000',
+        color: '#ffffff',
+        border: '1px solid rgba(206,17,38,0.3)',
         borderRadius: '12px',
         padding: '24px',
         zIndex: 1001,
@@ -157,9 +157,9 @@ export function HotspotDrawer({ hotspots }: Props) {
         bottom: 0,
         maxHeight: '80vh',
         overflowY: 'auto',
-        background: '#15110d',
-        color: '#f5ebd8',
-        borderTop: '1px solid rgba(241,193,85,0.3)',
+        background: '#000000',
+        color: '#ffffff',
+        borderTop: '1px solid rgba(206,17,38,0.3)',
         borderRadius: '16px 16px 0 0',
         padding: '24px',
         zIndex: 1001,
@@ -211,7 +211,7 @@ export function HotspotDrawer({ hotspots }: Props) {
                 minWidth: '40px',
                 minHeight: '40px',
                 background: 'transparent',
-                color: '#f5ebd8',
+                color: '#ffffff',
                 border: 'none',
                 fontSize: '24px',
                 lineHeight: 1,
@@ -230,7 +230,7 @@ export function HotspotDrawer({ hotspots }: Props) {
                     margin: '0 0 8px 0',
                     fontSize: '20px',
                     fontWeight: 600,
-                    color: '#f1c155',
+                    color: '#CE1126',
                   }}
                 >
                   {drawer.title}
@@ -271,7 +271,7 @@ export function HotspotDrawer({ hotspots }: Props) {
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
-                              color: '#f1c155',
+                              color: '#CE1126',
                               textDecoration: 'underline',
                               fontSize: '14px',
                             }}
@@ -295,8 +295,8 @@ export function HotspotDrawer({ hotspots }: Props) {
                       justifyContent: 'center',
                       minHeight: '44px',
                       padding: '0 20px',
-                      background: '#f1c155',
-                      color: '#15110d',
+                      background: '#CE1126',
+                      color: '#000000',
                       border: 'none',
                       borderRadius: '8px',
                       fontWeight: 600,
@@ -316,7 +316,7 @@ export function HotspotDrawer({ hotspots }: Props) {
                     margin: '0 0 8px 0',
                     fontSize: '20px',
                     fontWeight: 600,
-                    color: '#f1c155',
+                    color: '#CE1126',
                   }}
                 >
                   {hotspot.label}

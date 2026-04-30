@@ -46,7 +46,7 @@ export default async function AdminLayout({
         style={{
           minHeight: '100vh',
           background: '#0a0a0a',
-          color: '#f5ebd8',
+          color: '#ffffff',
           display: 'flex',
           flexDirection: 'column',
         }}
@@ -61,7 +61,7 @@ export default async function AdminLayout({
       style={{
         minHeight: '100vh',
         background: '#0a0a0a',
-        color: '#f5ebd8',
+        color: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
       }}
@@ -84,7 +84,7 @@ export default async function AdminLayout({
             type="submit"
             style={{
               background: 'transparent',
-              color: '#f5ebd8',
+              color: '#ffffff',
               border: '1px solid #4a4a4a',
               borderRadius: 6,
               padding: '6px 12px',
