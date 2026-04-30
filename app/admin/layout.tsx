@@ -45,7 +45,7 @@ export default async function AdminLayout({
       <div
         style={{
           minHeight: '100vh',
-          background: '#0a0a0a',
+          background: '#000000',
           color: '#ffffff',
           display: 'flex',
           flexDirection: 'column',
@@ -60,7 +60,7 @@ export default async function AdminLayout({
     <div
       style={{
         minHeight: '100vh',
-        background: '#0a0a0a',
+        background: '#000000',
         color: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
@@ -72,7 +72,7 @@ export default async function AdminLayout({
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '12px 16px',
-          borderBottom: '1px solid #2a2a2a',
+          borderBottom: '1px solid rgba(206,17,38,0.25)',
           gap: 12,
         }}
       >

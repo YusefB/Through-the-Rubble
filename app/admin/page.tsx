@@ -40,7 +40,7 @@ export default async function AdminDashboardPage() {
             key={s.label}
             style={{
               background: '#161616',
-              border: '1px solid #2a2a2a',
+              border: '1px solid rgba(206,17,38,0.25)',
               borderRadius: 8,
               padding: 16,
             }}
@@ -72,7 +72,7 @@ export default async function AdminDashboardPage() {
                   display: 'block',
                   padding: '12px 16px',
                   background: '#161616',
-                  border: '1px solid #2a2a2a',
+                  border: '1px solid rgba(206,17,38,0.25)',
                   borderRadius: 8,
                   color: '#ffffff',
                   textDecoration: 'none',
