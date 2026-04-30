@@ -16,7 +16,14 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   projects: [
-    { name: 'mobile-portrait', use: { ...devices['iPhone 14'] } },
+    {
+      name: 'mobile-portrait',
+      use: {
+        ...devices['iPhone 14'],
+        browserName: 'chromium',
+        defaultBrowserType: 'chromium',
+      },
+    },
     { name: 'desktop-chrome', use: { ...devices['Desktop Chrome'] } },
   ],
 })
