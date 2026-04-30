@@ -15,17 +15,22 @@ mkdirSync(out, { recursive: true })
 const TARGET_W = 1440
 const TARGET_H = 1800 // 4:5 portrait — keeps more image content visible than 9:24
 
+// Letterbox both photos at native aspect inside the 4:5 frame (1440 × 1800)
+// using a `contain` fit — no content is cropped. Padding is pure black to
+// match the Palestine flag stripe on the page background. This trades some
+// dead space at top/bottom or sides for full photographic fidelity.
+
 async function processBefore() {
-  // AlQassam Street (2268 × 4032, 9:16 portrait). Target 4:5 (1440 × 1800).
-  // Scale to 1440 wide → 1440 × 2560, then crop equally from top + bottom to
-  // 1800 tall (~70% of vertical content preserved, centered).
-  const scaled = await sharp('tmp/source-photos/before-alqassam.jpg')
-    .resize({ width: TARGET_W, fit: 'cover' })
-    .toBuffer()
-  const { height: scaledH } = await sharp(scaled).metadata()
-  const cropTop = Math.round((scaledH - TARGET_H) / 2)
-  await sharp(scaled)
-    .extract({ left: 0, top: cropTop, width: TARGET_W, height: TARGET_H })
+  // AlQassam Street (2268 × 4032, 9:16 portrait). With a 4:5 target, this is
+  // taller-than-target → fit by height and pad sides. Scale to 1800 tall:
+  // 1013 × 1800, pad ~213 px black on each side.
+  await sharp('tmp/source-photos/before-alqassam.jpg')
+    .resize({
+      width: TARGET_W,
+      height: TARGET_H,
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0 },
+    })
     .webp({ quality: 82 })
     .toFile(`${out}/main-street-before.webp`)
 
@@ -41,17 +46,17 @@ async function processBefore() {
 }
 
 async function processAfter() {
-  // IMG_5923 (4032 × 2268 landscape). Target 4:5 (1440 × 1800). To keep more
-  // horizontal context: scale-fit to 1800 tall (gives ~3199 × 1800), then
-  // center-crop 1440 wide (~45% horizontal preserved vs ~21% on the previous
-  // tight 9:24 crop).
-  const buf = await sharp('tmp/source-photos/after-rubble.jpg')
-    .resize({ height: TARGET_H, fit: 'cover' })
-    .toBuffer()
-  const { width: scaledW } = await sharp(buf).metadata()
-  const cropLeft = Math.round((scaledW - TARGET_W) / 2)
-  await sharp(buf)
-    .extract({ left: cropLeft, top: 0, width: TARGET_W, height: TARGET_H })
+  // IMG_5923 (4032 × 2268 landscape, 16:9). With a 4:5 target, this is wider-
+  // than-target → fit by width and pad top/bottom. Scale to 1440 wide:
+  // 1440 × 810, pad ~495 px black above and below. The full original frame is
+  // visible — no crop, no zoom.
+  await sharp('tmp/source-photos/after-rubble.jpg')
+    .resize({
+      width: TARGET_W,
+      height: TARGET_H,
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0 },
+    })
     .webp({ quality: 82 })
     .toFile(`${out}/main-street-after.webp`)
 
