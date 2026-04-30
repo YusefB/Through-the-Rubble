@@ -19,22 +19,24 @@ export const mockImages: SceneImage[] = [
     url: '/scenes/main-street-before.webp',
     width: 1440,
     height: 3840,
-    blurDataUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=',
-    isReconstruction: true,
-    reconstructionLabel:
-      'Reconstruction based on archival imagery. Architectural details extrapolated from public records and witness accounts.',
-    altText: 'Main Street as it appeared in 2019, with apartment buildings and a school visible.',
-    creditLine: '© 2026 Through the Rubble — visual reconstruction',
+    blurDataUrl:
+      'data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoIABYAPxFysFAsJqSisAgBgCIJZwDE2BtjvdaDImAtZ0AA/tqdWTDcBFumHvFaMihFj5hYehEjkxU05qcPeiM0RMhYUhzJNGnfuGdiHMyAwjMjvjwqwAAA',
+    isReconstruction: false,
+    altText:
+      'Shifa Ezz Eldine AlQassam Street in Gaza, photographed January 5, 2023, before the 2023-2025 war.',
+    creditLine: 'Photo: Jaber Jehad Badwan / Wikimedia Commons (CC BY-SA 4.0)',
   },
   {
     variant: 'after',
     url: '/scenes/main-street-after.webp',
     width: 1440,
     height: 3840,
-    blurDataUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=',
+    blurDataUrl:
+      'data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoIABYAPxFysFAsJqSisAgBgCIJQBOgA8npk8ZWKhJdkAD+VHJ+49txB7QOAoXkzA1MU8AiGtniaPEKnGYwlcmd/kkthm7p+ppsqrFledL3Xn6Si94grobAAAA',
     isReconstruction: false,
-    altText: 'Main Street today, showing extensive damage to apartment buildings and the school.',
-    creditLine: '© 2026 Through the Rubble',
+    altText:
+      'Street-level destruction in Gaza during the 2023-2025 war, photographed February 22, 2025.',
+    creditLine: 'Photo: Jaber Jehad Badwan / Wikimedia Commons (CC BY-SA 4.0)',
   },
 ]
 

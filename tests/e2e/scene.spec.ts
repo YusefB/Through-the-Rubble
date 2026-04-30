@@ -28,12 +28,14 @@ test.describe('Scene engine', () => {
     await expect(page.getByRole('switch')).toHaveAttribute('aria-checked', 'true')
   })
 
-  test('reconstruction label appears in before mode', async ({ page }) => {
+  test('reconstruction label is hidden when the master image is a real photograph', async ({ page }) => {
+    // The current demo uses real CC BY-SA 4.0 photographs (Jaber Jehad Badwan)
+    // for both before and after, so isReconstruction=false on both. The label
+    // component itself is covered by unit tests; this just verifies the engine
+    // does not surface the badge for non-generated imagery.
     await page.goto('/?state=before')
-    await expect(page.getByRole('note', { name: /Visual reconstruction/i })).toBeVisible()
-  })
+    await expect(page.getByRole('note', { name: /Visual reconstruction/i })).not.toBeVisible()
 
-  test('reconstruction label hidden in after mode', async ({ page }) => {
     await page.goto('/?state=after')
     await expect(page.getByRole('note', { name: /Visual reconstruction/i })).not.toBeVisible()
   })
