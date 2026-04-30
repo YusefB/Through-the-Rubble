@@ -21,6 +21,12 @@ describe('sceneStore', () => {
     expect(s.reducedMotion).toBe(false)
   })
 
+  it('initializes story mode defaults when not provided', () => {
+    const s = useStore.getState()
+    expect(s.storyModeActive).toBe(false)
+    expect(s.storyModeChapterIndex).toBe(-1)
+  })
+
   it('toggleBeforeAfter flips between before and after', () => {
     useStore.getState().toggleBeforeAfter()
     expect(useStore.getState().beforeAfter).toBe('before')
@@ -50,6 +56,48 @@ describe('sceneStore', () => {
   it('setReducedMotion updates value', () => {
     useStore.getState().setReducedMotion(true)
     expect(useStore.getState().reducedMotion).toBe(true)
+  })
+
+  it('startStoryMode sets active=true and index=0', () => {
+    useStore.getState().startStoryMode()
+    const s = useStore.getState()
+    expect(s.storyModeActive).toBe(true)
+    expect(s.storyModeChapterIndex).toBe(0)
+  })
+
+  it('stopStoryMode sets active=false and index=-1', () => {
+    useStore.getState().startStoryMode()
+    useStore.getState().stopStoryMode()
+    const s = useStore.getState()
+    expect(s.storyModeActive).toBe(false)
+    expect(s.storyModeChapterIndex).toBe(-1)
+  })
+
+  it('nextStoryChapter increments index and clamps at total - 1', () => {
+    useStore.getState().startStoryMode()
+    useStore.getState().nextStoryChapter(3)
+    expect(useStore.getState().storyModeChapterIndex).toBe(1)
+    useStore.getState().nextStoryChapter(3)
+    expect(useStore.getState().storyModeChapterIndex).toBe(2)
+    useStore.getState().nextStoryChapter(3)
+    expect(useStore.getState().storyModeChapterIndex).toBe(2)
+  })
+
+  it('prevStoryChapter decrements index and clamps at 0', () => {
+    useStore.getState().setStoryChapterIndex(2)
+    useStore.getState().prevStoryChapter()
+    expect(useStore.getState().storyModeChapterIndex).toBe(1)
+    useStore.getState().prevStoryChapter()
+    expect(useStore.getState().storyModeChapterIndex).toBe(0)
+    useStore.getState().prevStoryChapter()
+    expect(useStore.getState().storyModeChapterIndex).toBe(0)
+  })
+
+  it('setStoryChapterIndex sets explicit value', () => {
+    useStore.getState().setStoryChapterIndex(2)
+    expect(useStore.getState().storyModeChapterIndex).toBe(2)
+    useStore.getState().setStoryChapterIndex(0)
+    expect(useStore.getState().storyModeChapterIndex).toBe(0)
   })
 
   it('multiple stores are independent', () => {

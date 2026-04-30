@@ -45,10 +45,42 @@ export const mockParallax: ParallaxLayer[] = [
 ]
 
 export const mockChapters: Chapter[] = [
-  { id: 'ch-north-block', sceneId: 'scene-main-street', order: 0, label: 'North block', scrollAnchorY: 0.12 },
-  { id: 'ch-school',      sceneId: 'scene-main-street', order: 1, label: 'School ruins', scrollAnchorY: 0.34 },
-  { id: 'ch-shelter',     sceneId: 'scene-main-street', order: 2, label: 'Shelter site', scrollAnchorY: 0.56 },
-  { id: 'ch-aid',         sceneId: 'scene-main-street', order: 3, label: 'Aid distribution', scrollAnchorY: 0.78 },
+  {
+    id: 'ch-north-block',
+    sceneId: 'scene-main-street',
+    order: 0,
+    label: 'North block',
+    scrollAnchorY: 0.12,
+    narration:
+      'Sample narration — The north block held mid-rise apartment buildings that anchored the neighbourhood for decades. The street level once carried steady foot traffic between the buildings and the small shops along the avenue.',
+  },
+  {
+    id: 'ch-school',
+    sceneId: 'scene-main-street',
+    order: 1,
+    label: 'School ruins',
+    scrollAnchorY: 0.34,
+    narration:
+      'Sample narration — The local school sat at the centre of the block, serving children from the surrounding streets. Its grounds were a familiar gathering place for families before the area was emptied.',
+  },
+  {
+    id: 'ch-shelter',
+    sceneId: 'scene-main-street',
+    order: 2,
+    label: 'Shelter site',
+    scrollAnchorY: 0.56,
+    narration:
+      'Sample narration — A shelter site was established here for residents who could not return home. Conditions are described by aid workers as crowded, with limited resources for those still arriving.',
+  },
+  {
+    id: 'ch-aid',
+    sceneId: 'scene-main-street',
+    order: 3,
+    label: 'Aid distribution',
+    scrollAnchorY: 0.78,
+    narration:
+      'Sample narration — Aid distribution moved to this corner of the street after the original site became inaccessible. Volunteers and humanitarian organisations rotate through the location to meet ongoing need.',
+  },
 ]
 
 export const mockHotspots: Hotspot[] = [

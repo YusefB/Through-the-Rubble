@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { SceneViewport } from '@/components/scene/SceneViewport'
 import { HotspotDrawer } from '@/components/scene/HotspotDrawer'
+import { StoryModePlayer } from '@/components/scene/StoryModePlayer'
 import { ActionLayer } from '@/components/action/ActionLayer'
 import {
   mockScene,
@@ -22,6 +23,7 @@ export default function HomePage() {
           hotspots={mockHotspots}
         >
           <HotspotDrawer hotspots={mockHotspots} />
+          <StoryModePlayer chapters={mockChapters} />
         </SceneViewport>
       </Suspense>
       <ActionLayer />
