@@ -1,0 +1,21 @@
+{
+  "scene": {
+    "begin_story": "[ar] ابدأ القصة الموجهة",
+    "exit_story": "[ar] خروج",
+    "before": "[ar] قبل",
+    "after": "[ar] بعد",
+    "visual_reconstruction": "[ar] إعادة بناء بصرية"
+  },
+  "action": {
+    "title": "[ar] كيف يمكنك المساعدة",
+    "subtitle": "[ar] هذه نقاط بداية — كل عمل يهم.",
+    "donate": "[ar] تبرع للإغاثة الإنسانية",
+    "learn": "[ar] اعرف المزيد",
+    "share": "[ar] شارك هذه القصة"
+  },
+  "language": {
+    "label": "[ar] اللغة",
+    "english": "[ar] English",
+    "arabic": "[ar] العربية"
+  }
+}

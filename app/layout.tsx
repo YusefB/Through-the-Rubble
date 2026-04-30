@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { IntlProvider } from '@/lib/i18n/IntlProvider'
 import './globals.css'
 
 const geistSans = Geist({
@@ -34,7 +35,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" style={{ margin: 0, background: '#0a0a0a' }}>
-        {children}
+        <IntlProvider>{children}</IntlProvider>
       </body>
     </html>
   )

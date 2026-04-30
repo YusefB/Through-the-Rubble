@@ -1,0 +1,21 @@
+{
+  "scene": {
+    "begin_story": "Begin guided story",
+    "exit_story": "Exit",
+    "before": "BEFORE",
+    "after": "AFTER",
+    "visual_reconstruction": "Visual reconstruction"
+  },
+  "action": {
+    "title": "How you can help",
+    "subtitle": "These are starting points — every action matters.",
+    "donate": "Donate to humanitarian relief",
+    "learn": "Learn more",
+    "share": "Share this story"
+  },
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "arabic": "العربية"
+  }
+}
