@@ -5,7 +5,7 @@ import {
   createSceneStore,
   type SceneStore,
   type SceneStoreApi,
-  type SceneStoreState,
+  type SceneStoreInitialState,
 } from './store'
 
 const SceneStoreContext = createContext<SceneStoreApi | null>(null)
@@ -14,7 +14,7 @@ export function SceneStoreProvider({
   initial,
   children,
 }: {
-  initial: SceneStoreState
+  initial: SceneStoreInitialState
   children: ReactNode
 }) {
   const storeRef = useRef<SceneStoreApi | null>(null)
