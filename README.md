@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Through the Rubble — Scene Engine
 
-## Getting Started
+Mobile-first interactive documentary scene engine. This is sub-project 1 of 6.
 
-First, run the development server:
+## Prerequisites
+
+- Node.js 24+
+- npm
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — Next.js dev server (Turbopack)
+- `npm run build` — production build
+- `npm run typecheck` — TypeScript noEmit check
+- `npm test` — Vitest unit + component tests
+- `npm run test:watch` — Vitest in watch mode
+- `npm run e2e` — Playwright e2e tests
+- `node scripts/generate-placeholders.mjs` — regenerate placeholder scene images
 
-## Learn More
+## Architecture
 
-To learn more about Next.js, take a look at the following resources:
+See [`docs/superpowers/specs/2026-04-30-scene-engine-design.md`](docs/superpowers/specs/2026-04-30-scene-engine-design.md) for the full design and [`docs/superpowers/plans/2026-04-30-scene-engine.md`](docs/superpowers/plans/2026-04-30-scene-engine.md) for the implementation plan.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The scene engine renders a single tall stitched documentary scene with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Two stacked master images (before/after) with global crossfade toggle
+- 3 parallax layers (haze, dust, smoke) with scroll-linked transforms
+- Hotspot overlay with `visualState` filtering (always / before-only / after-only)
+- Chapter detection via IntersectionObserver
+- URL deep-link contract: `?chapter=`, `?state=`, `?hotspot=`
+- Reduced-motion fork (auto-activates on `prefers-reduced-motion: reduce`)
 
-## Deploy on Vercel
+The engine consumes typed data; it does not fetch. Mock fixtures live in `lib/scene/fixtures/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Out of scope (deferred to future specs)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Drawer / bottom-sheet for hotspot story content
+- Desktop sidebar
+- Story Mode player
+- Source pipeline (`official-sources` MCP)
+- Admin PWA + deploy control
+- Sourcing governance
