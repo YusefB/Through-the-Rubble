@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
-import { motion } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
+import type { RefObject } from 'react'
 import type { SceneImage, ParallaxLayer as ParallaxData } from '@/lib/scene/types'
 import { useSceneStore } from '@/lib/scene/SceneStoreContext'
 
@@ -43,12 +44,22 @@ export function MasterLayer({ image, priority = false }: MasterProps) {
 type ParallaxProps = {
   layer: ParallaxData
   reduced?: boolean
+  sceneRef?: RefObject<HTMLElement | null>
 }
 
-export function ParallaxLayer({ layer, reduced = false }: ParallaxProps) {
+export function ParallaxLayer({ layer, reduced = false, sceneRef }: ParallaxProps) {
+  const { scrollYProgress } = useScroll(
+    sceneRef
+      ? { target: sceneRef, offset: ['start end', 'end start'] }
+      : undefined,
+  )
+  const driftRange = 200 * (1 - layer.parallaxFactor)
+  const y = useTransform(scrollYProgress, [0, 1], [0, -driftRange])
+
   if (reduced) return null
+
   return (
-    <div
+    <motion.div
       data-testid={`parallax-layer-${layer.id}`}
       style={{
         position: 'absolute',
@@ -56,9 +67,10 @@ export function ParallaxLayer({ layer, reduced = false }: ParallaxProps) {
         opacity: layer.opacity ?? 1,
         mixBlendMode: layer.blendMode ?? 'normal',
         pointerEvents: 'none',
+        y,
       }}
     >
       <Image src={layer.url} alt="" role="presentation" fill style={{ objectFit: 'cover' }} />
-    </div>
+    </motion.div>
   )
 }
