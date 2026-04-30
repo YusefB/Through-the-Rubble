@@ -1,5 +1,7 @@
 import { Suspense } from 'react'
 import { SceneViewport } from '@/components/scene/SceneViewport'
+import { HotspotDrawer } from '@/components/scene/HotspotDrawer'
+import { ActionLayer } from '@/components/action/ActionLayer'
 import {
   mockScene,
   mockImages,
@@ -18,8 +20,11 @@ export default function HomePage() {
           parallaxLayers={mockParallax}
           chapters={mockChapters}
           hotspots={mockHotspots}
-        />
+        >
+          <HotspotDrawer hotspots={mockHotspots} />
+        </SceneViewport>
       </Suspense>
+      <ActionLayer />
     </main>
   )
 }

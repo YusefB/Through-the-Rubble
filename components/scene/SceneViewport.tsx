@@ -15,8 +15,12 @@ import { BeforeAfterToggle } from './BeforeAfterToggle'
 import { ChapterAnchor } from './ChapterAnchor'
 import { ReconstructionLabel } from './ReconstructionLabel'
 
-export function SceneViewport(props: SceneEngineProps) {
-  const initialBeforeAfter = props.initialBeforeAfter ?? props.scene.defaultBeforeAfter
+export function SceneViewport(
+  props: SceneEngineProps & { children?: React.ReactNode },
+) {
+  const { children, ...engineProps } = props
+  const initialBeforeAfter =
+    engineProps.initialBeforeAfter ?? engineProps.scene.defaultBeforeAfter
   return (
     <SceneStoreProvider
       initial={{
@@ -26,7 +30,8 @@ export function SceneViewport(props: SceneEngineProps) {
         reducedMotion: false,
       }}
     >
-      <SceneViewportInner {...props} />
+      <SceneViewportInner {...engineProps} />
+      {children}
     </SceneStoreProvider>
   )
 }
