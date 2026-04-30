@@ -78,7 +78,7 @@ export default function LoginPage() {
           background: '#161616',
           padding: 24,
           borderRadius: 8,
-          border: '1px solid #2a2a2a',
+          border: '1px solid rgba(206,17,38,0.25)',
         }}
         aria-label="Admin sign in"
       >
@@ -99,7 +99,7 @@ export default function LoginPage() {
               padding: '10px 12px',
               borderRadius: 6,
               border: '1px solid #4a4a4a',
-              background: '#0a0a0a',
+              background: '#000000',
               color: '#ffffff',
               fontSize: 15,
             }}
@@ -127,7 +127,7 @@ export default function LoginPage() {
                 padding: '10px 12px',
                 borderRadius: 6,
                 border: '1px solid #4a4a4a',
-                background: '#0a0a0a',
+                background: '#000000',
                 color: '#ffffff',
                 fontSize: 15,
               }}
@@ -143,7 +143,7 @@ export default function LoginPage() {
             borderRadius: 6,
             border: 'none',
             background: '#ffffff',
-            color: '#0a0a0a',
+            color: '#000000',
             fontSize: 15,
             fontWeight: 600,
             cursor: submitting ? 'wait' : 'pointer',

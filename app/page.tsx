@@ -4,6 +4,7 @@ import { HotspotDrawer } from '@/components/scene/HotspotDrawer'
 import { StoryModePlayer } from '@/components/scene/StoryModePlayer'
 import { ActionLayer } from '@/components/action/ActionLayer'
 import { LanguageToggle } from '@/components/i18n/LanguageToggle'
+import { SiteHeader } from '@/components/SiteHeader'
 import { loadSceneBySlug } from '@/lib/supabase/scene-loader'
 import {
   mockScene,
@@ -41,6 +42,7 @@ export default async function HomePage() {
       >
         <LanguageToggle />
       </div>
+      <SiteHeader title="Through the Rubble" subtitle={scene.title} />
       <Suspense fallback={null}>
         <SceneViewport
           scene={scene}

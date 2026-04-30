@@ -19,7 +19,7 @@ export function LanguageToggle() {
             minHeight: '48px',
             padding: '8px 12px',
             background: locale === l ? '#CE1126' : 'transparent',
-            color: locale === l ? '#000000' : '#ffffff',
+            color: '#ffffff',
             border: '1px solid rgba(206,17,38,0.5)',
             borderRadius: '999px',
             cursor: 'pointer',

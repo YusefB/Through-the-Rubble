@@ -105,7 +105,7 @@ function SceneViewportInner({
         position: 'relative',
         width: '100%',
         aspectRatio,
-        background: '#0a0a0a',
+        background: '#000000',
       }}
     >
       <p id={`scene-desc-${scene.id}`} className="sr-only">

@@ -51,7 +51,7 @@ export default async function AdminScenesPage() {
           }}
         >
           <thead>
-            <tr style={{ borderBottom: '1px solid #2a2a2a' }}>
+            <tr style={{ borderBottom: '1px solid rgba(206,17,38,0.25)' }}>
               <th style={cellStyle}>Title</th>
               <th style={cellStyle}>Slug</th>
               <th style={cellStyle}>Language</th>

@@ -296,7 +296,7 @@ export function HotspotDrawer({ hotspots }: Props) {
                       minHeight: '44px',
                       padding: '0 20px',
                       background: '#CE1126',
-                      color: '#000000',
+                      color: '#ffffff',
                       border: 'none',
                       borderRadius: '8px',
                       fontWeight: 600,
